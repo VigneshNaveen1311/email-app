@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 import '../../App.css'
 import videoBg from '../../assets/amrita.mp4'
 
@@ -8,19 +8,30 @@ export default function SignInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         let data = {
-            email,
+            username:email,
+            // email,
             password
         }
-        console.log("api data",data)
+        axios
+            .post("http://10.11.130.170:8080/api/auth/signin", data)
+            .then((response) => {
+                console.log(response);
+                // Toast(response?.data?.message);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        console.log("api data", data)
     }
 
     return (
         <div className="text-center m-5-auto" >
             <h2 >Sign in to us</h2>
 
-            <form>
+            <form method="post" onSubmit={(e)=> handleSubmit(e)}>
                 <p>
                     <label>Username or email address</label><br />
                     <input type="text" name="email"
@@ -37,7 +48,7 @@ export default function SignInPage() {
                     />
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit" onSubmit={handleSubmit}>Login</button>
+                    <button id="sub_btn" type="submit" onClick={(e)=> handleSubmit(e)} >Login</button>
                 </p>
             </form>
             <div className="vbg" >
