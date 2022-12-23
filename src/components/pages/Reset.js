@@ -7,11 +7,13 @@ import videoBg from '../../assets/amrita.mp4'
 
 export default function ResetPage() {
     const [newpassword,setNewpassword] = useState("");
+    const [email,setEmail]=useState("");
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault()
         
         let data = {
+            email,
             newpassword            
         }
         axios
@@ -30,6 +32,12 @@ export default function ResetPage() {
         <div className="text-center m-5-auto">
             <h2>Update Password</h2>
             <form method="post"  onSubmit={(e)=> handleSubmit(e)}>
+            <p>
+                    <label>Username or email address</label><br />
+                    <input type="text" name="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        required />
+                </p>
                 <p>
                     <label>Email address</label><br />
                     <input type="number" name="otp"

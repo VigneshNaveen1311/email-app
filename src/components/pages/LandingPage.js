@@ -27,6 +27,7 @@ export default function LandingPage() {
         
     )
 }
+//ss
 const Style = {
     width: "100%",
     height: "100%",

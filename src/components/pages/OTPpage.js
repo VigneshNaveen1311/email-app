@@ -24,7 +24,7 @@ export default function OTPPage() {
                 console.log(error);
             });
         console.log("api data", data)
-    }
+    }//sss
     return (
         
         <div className="text-center m-5-auto" >

@@ -95,7 +95,7 @@ export default function SignUpPage() {
         </div>
     )
 }
-
+//sda
 // style={ HeaderStyle }
 // const HeaderStyle = {
 //     position: "absolute",

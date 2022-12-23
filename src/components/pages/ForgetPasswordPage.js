@@ -26,6 +26,7 @@ export default function ForgetPasswordPage() {
             });
         console.log("api data", data)
     }
+    //dsafa
     return (
         
         <div className="text-center m-5-auto" >
