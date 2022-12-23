@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import '../../App.css'
 import videoBg from '../../assets/amrita.mp4'
@@ -7,6 +7,7 @@ import videoBg from '../../assets/amrita.mp4'
 export default function SignInPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -20,7 +21,9 @@ export default function SignInPage() {
             .then((response) => {
                 console.log(response);
                 // Toast(response?.data?.message);
-            })
+            }).then(
+                navigate("/home")
+            )
             .catch(function (error) {
                 console.log(error);
             });
@@ -48,7 +51,7 @@ export default function SignInPage() {
                     />
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit" onClick={(e)=> handleSubmit(e)} >Login</button>
+                    <button id="sub_btn" type="submit"  >Login</button>
                 </p>
             </form>
             <div className="vbg" >

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import LandingPage from './components/pages/LandingPage'
 import LoginPage from './components/pages/LoginPage'
@@ -13,21 +13,21 @@ import './App.css'
 
 export default function App() {
     return (
-        <Router>
+        // <Router>
             <div>
-                <Switch>
-                    <Route exact path="/" component={ LandingPage } />
-                    <Route path="/login" component={ LoginPage } />
-                    <Route path="/register" component={ RegisterPage } />
-                    <Route path="/forget-password" component={ ForgetPasswordPage } />
-                    <Route path="/home" component={ HomePage } />
-                    <Route path="/otp" component={ OTPPage } /> 
-                    <Route path="/reset" component={ Reset } /> 
+                <Routes>
+                    <Route exact path="/" element={ <LandingPage/> } />
+                    <Route path="/login" element={ <LoginPage/> } />
+                    <Route path="/register" element={ <RegisterPage />} />
+                    <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
+                    <Route path="/home" element={ <HomePage/> } />
+                    <Route path="/otp" element={ <OTPPage/> } /> 
+                    <Route path="/reset" element={ <Reset/> } /> 
 
-                </Switch>
+                </Routes>
                 {/* <Footer /> */}
             </div>
-        </Router>
+        // </Router>
     )
 }
 

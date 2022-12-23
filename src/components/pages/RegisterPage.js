@@ -81,7 +81,7 @@ export default function SignUpPage() {
                 </select>
 
                 <p>
-                    <button id="sub_btn" type="submit" onClick={(e) => handleSubmit(e)} >Login</button>
+                    <button id="sub_btn" type="submit" >Register</button>
                 </p>
             </form>
             <div className="vbg" >
