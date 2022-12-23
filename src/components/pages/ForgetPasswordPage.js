@@ -16,7 +16,7 @@ export default function ForgetPasswordPage() {
             email            
         }
         axios
-            .post("http://192.168.6.17:8080/api/auth/signin", data)
+            .post("http://192.168.6.17:8080/api/auth/forgotpassword", data)
             .then((response) => {
                 console.log(response);
                 navigate("/otp")

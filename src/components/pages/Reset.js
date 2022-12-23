@@ -17,7 +17,7 @@ export default function ResetPage() {
             newpassword            
         }
         axios
-            .post("http://192.168.6.17:8080/api/auth/signin", data)
+            .post("http://192.168.6.17:8080/api/auth/forgotpassword/verifyotp/resetpassword", data)
             .then((response) => {
                 console.log(response);
                 navigate("/reset")
