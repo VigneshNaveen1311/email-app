@@ -20,10 +20,11 @@ export default function SignUpPage() {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [role,setRole]=useState("");
+    const [roles,setRole]=useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        let role = [roles]
         let data = {
             username,
             email,
@@ -32,7 +33,7 @@ export default function SignUpPage() {
         }
         console.log(data);
         axios
-            .post("http://10.11.130.170:8080/api/auth/signin", data)
+            .post("http://10.11.139.134:8080/api/auth/signup", data)
             .then((response) => {
                 console.log(response);
                 // Toast(response?.data?.message);
@@ -73,8 +74,8 @@ export default function SignUpPage() {
 
                 <select name="role" id="role" onChange={(e) => setRole(e.target.value)}
                         required> 
-                    <option value="warden">warden</option>
-                    <option value="student">student</option>
+                    <option value="mod">mod</option>
+                    <option value="user">user</option>
                     
                     
                 </select>
