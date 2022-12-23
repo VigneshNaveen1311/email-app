@@ -17,13 +17,11 @@ export default function SignInPage() {
             password
         }
         axios
-            .post("http://10.11.139.134:8080/api/auth/signin", data)
+            .post("http://192.168.6.17:8080/api/auth/signin", data)
             .then((response) => {
                 console.log(response);
-                // Toast(response?.data?.message);
-            }).then(
                 navigate("/home")
-            )
+            })
             .catch(function (error) {
                 console.log(error);
             });

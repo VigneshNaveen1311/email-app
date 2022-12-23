@@ -1,29 +1,43 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link,useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import axios from 'axios'
 import '../../App.css'
 import videoBg from '../../assets/amrita.mp4'
 
 export default function ResetPage() {
+    const [newpassword,setNewpassword] = useState("");
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        let data = {
+            newpassword            
+        }
+        axios
+            .post("http://192.168.6.17:8080/api/auth/signin", data)
+            .then((response) => {
+                console.log(response);
+                navigate("/reset")
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        console.log("api data", data)
+    }
 
     return (
         <div className="text-center m-5-auto">
             <h2>Update Password</h2>
-            <form action="/home">
+            <form method="post"  onSubmit={(e)=> handleSubmit(e)}>
                 <p>
-                    <label>Email address</label><br/>
-                    <input type="email" name="email" required />
+                    <label>Email address</label><br />
+                    <input type="number" name="otp"
+                        onChange={(e) => setNewpassword(e.target.value)}
+                        required />
                 </p>
                 <p>
-                    <label>Password</label><br/>
-                    <input type="password" name="password" requiredc />
-                </p>
-                <p>
-                    <label>Confirm Password</label><br/>
-                    <input type="password" name="confirm password" requiredc />
-                </p>
-                <p>
-                    <button id="sub_btn" type="submit">Update Password</button>
+                    <button id="sub_btn" type="submit" >Send OTP</button>
                 </p>
             </form>
             <div className="vbg" style={ HeaderStyle }>

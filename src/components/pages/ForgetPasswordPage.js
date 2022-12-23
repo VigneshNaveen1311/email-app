@@ -16,12 +16,11 @@ export default function ForgetPasswordPage() {
             email            
         }
         axios
-            .post("http://10.11.139.134:8080/api/auth/signin", data)
+            .post("http://192.168.6.17:8080/api/auth/signin", data)
             .then((response) => {
                 console.log(response);
-            }).then(
                 navigate("/otp")
-            )
+            })
             .catch(function (error) {
                 console.log(error);
             });

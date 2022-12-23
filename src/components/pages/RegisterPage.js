@@ -33,10 +33,11 @@ export default function SignUpPage() {
         }
         console.log(data);
         axios
-            .post("http://10.11.139.134:8080/api/auth/signup", data)
+            .post("http://192.168.6.17:8080/api/auth/signup", data)
             .then((response) => {
                 console.log(response);
                 // Toast(response?.data?.message);
+                
             })
             .catch(function (error) {
                 console.log(error);
