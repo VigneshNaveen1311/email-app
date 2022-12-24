@@ -3,17 +3,18 @@ import classNames from "classnames";
 //import "antd/dist/antd.css";
 import "./Sidebar.css";
 import AVVPlogo from '../../assets/images/AVVPlogo.png'
+import { useNavigate } from "react-router-dom";
 
 function Sidebar(props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [channels, setChannels] = useState([]);
+const navigate = useNavigate()
 
   return (
     <div className={classNames("sidebar", { nonVisible: !sidebarOpen })}>
       <div className="logo d-flex justify-content-between">
-        <div className="logo-name">
+        <div className="logo-name" onClick={() => window.open("https://aumscb.amrita.edu/cas/login")} >
           <img
-            
             src={AVVPlogo}
             alt=""
           />

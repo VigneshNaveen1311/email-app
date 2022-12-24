@@ -9,6 +9,7 @@ import HomePage from './components/pages/HomePage'
 import OTPPage from './components/pages/OTPpage'
 import Reset from './components/pages/Reset'
 import RegSuccess from './components/pages/RegisterSuccess'
+import Sidebar from './components/pages/SideBar'
 
 import './App.css'
 
@@ -21,10 +22,11 @@ export default function App() {
                     <Route path="/login" element={ <LoginPage/> } />
                     <Route path="/register" element={ <RegisterPage />} />
                     <Route path="/forget-password" element={ <ForgetPasswordPage/> } />
-                    <Route path="/home" element={ <HomePage/> } />
+                    <Route path="/home1" element={ <HomePage/> } />
                     <Route path="/otp" element={ <OTPPage/> } /> 
                     <Route path="/reset" element={ <Reset/> } /> 
                     <Route path="/regsuc" element={ <RegSuccess/> } /> 
+                    <Route path="/home" element={ <Sidebar/> } />
                     
 
                 </Routes>

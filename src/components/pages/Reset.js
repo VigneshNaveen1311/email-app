@@ -20,10 +20,11 @@ export default function ResetPage() {
             .post("http://192.168.6.17:8080/api/auth/forgotpassword/verifyotp/resetpassword", data)
             .then((response) => {
                 console.log(response);
-                //change: should go to a page saying "go back to login"
-            }).then(
                 navigate("/regsuc")
-            )
+                //change: should go to a page saying "go back to login"
+             })//.then(
+            //     navigate("/regsuc")
+            // )
             .catch(function (error) {
                 console.log(error);
                 alert(`Try again`);
