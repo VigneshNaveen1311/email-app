@@ -24,6 +24,7 @@ export default function OTPPage() {
             })
             .catch(function (error) {
                 console.log(error);
+                alert(`Try again`);
             });
         console.log("api data", data)
     }//sss

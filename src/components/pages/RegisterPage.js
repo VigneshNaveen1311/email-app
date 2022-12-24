@@ -11,7 +11,7 @@
 import '../../App.css'
 
 import React, { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link  } from 'react-router-dom'
 import axios from 'axios'
 import '../../App.css'
 import videoBg from '../../assets/amrita.mp4'
@@ -44,6 +44,7 @@ export default function SignUpPage() {
             })
             .catch(function (error) {
                 console.log(error);
+                alert(`Try again`);
             });
         console.log("api data", data)
     }
@@ -61,7 +62,7 @@ export default function SignUpPage() {
                 </p>
                 <p>
                     <label>email address</label><br />
-                    <input type="text" name="email"
+                    <input type="email" name="email"
                         onChange={(e) => setEmail(e.target.value)}
                         required />
                 </p>

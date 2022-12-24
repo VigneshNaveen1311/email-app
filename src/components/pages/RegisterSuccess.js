@@ -6,7 +6,7 @@ import videoBg from '../../assets/amrita.mp4'
 export default function RegSuccess() {
     return (
         <div className="text-center" style={ HeaderStyle }>
-            <h1 className="main-title home-page-title">Registered Sucessfully</h1>
+            <h1 className="main-title home-page-title">Success!</h1>
             <Link to="/">
                 <button className="primary-button" style={ButtonStyle}>Continue to Login</button>
             </Link>

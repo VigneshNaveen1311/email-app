@@ -24,6 +24,7 @@ export default function SignInPage() {
             })
             .catch(function (error) {
                 console.log(error);
+                alert(`Check your credentials and try again`);                
             });
         console.log("api data", data)
     }
@@ -34,7 +35,7 @@ export default function SignInPage() {
 
             <form method="post" onSubmit={(e)=> handleSubmit(e)}>
                 <p>
-                    <label>Username or email address</label><br />
+                    <label>Username</label><br />
                     <input type="text" name="email"
                         onChange={(e) => setEmail(e.target.value)}
                         required />

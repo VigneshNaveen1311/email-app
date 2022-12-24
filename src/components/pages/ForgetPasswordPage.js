@@ -23,6 +23,7 @@ export default function ForgetPasswordPage() {
             })
             .catch(function (error) {
                 console.log(error);
+                alert(`Enter a valid email address`);
             });
         console.log("api data", data)
     }
