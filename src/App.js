@@ -8,6 +8,7 @@ import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
 import OTPPage from './components/pages/OTPpage'
 import Reset from './components/pages/Reset'
+import RegSuccess from './components/pages/RegisterSuccess'
 
 import './App.css'
 
@@ -23,6 +24,8 @@ export default function App() {
                     <Route path="/home" element={ <HomePage/> } />
                     <Route path="/otp" element={ <OTPPage/> } /> 
                     <Route path="/reset" element={ <Reset/> } /> 
+                    <Route path="/regsuc" element={ <RegSuccess/> } /> 
+                    
 
                 </Routes>
                 {/* <Footer /> */}

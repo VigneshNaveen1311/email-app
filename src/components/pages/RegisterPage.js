@@ -11,16 +11,18 @@
 import '../../App.css'
 
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import '../../App.css'
 import videoBg from '../../assets/amrita.mp4'
+import { useNavigate } from 'react-router-dom'
 
 export default function SignUpPage() {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [roles,setRole]=useState([]);
+    const navigate=useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -37,6 +39,7 @@ export default function SignUpPage() {
             .then((response) => {
                 console.log(response);
                 // Toast(response?.data?.message);
+                navigate("/regsuc")
                 
             })
             .catch(function (error) {
@@ -71,12 +74,12 @@ export default function SignUpPage() {
                         required
                     />
                 </p>
-                <label htmlFor="role">Choose a role: </label>
+                <label htmlFor="role">Choose a role:</label>
 
                 <select name="role" id="role" onChange={(e) => setRole(e.target.value)}
                         required> 
-                    <option value="mod">mod</option>
-                    <option value="user">user</option>
+                    <option value="mod">Warden</option>
+                    <option value="user">Student</option>
                     
                     
                 </select>

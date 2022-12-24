@@ -6,7 +6,7 @@ import '../../App.css'
 import videoBg from '../../assets/amrita.mp4'
 
 export default function ResetPage() {
-    const [newpassword,setNewpassword] = useState("");
+    const [password,setNewpassword] = useState("");
     const [email,setEmail]=useState("");
     const navigate = useNavigate();
     const handleSubmit = (e) => {
@@ -14,13 +14,13 @@ export default function ResetPage() {
         
         let data = {
             email,
-            newpassword            
+            password            
         }
         axios
             .post("http://192.168.6.17:8080/api/auth/forgotpassword/verifyotp/resetpassword", data)
             .then((response) => {
                 console.log(response);
-                navigate("/reset")
+                navigate("/reset")//change: should go to a page saying "go back to login"
             })
             .catch(function (error) {
                 console.log(error);
@@ -33,19 +33,19 @@ export default function ResetPage() {
             <h2>Update Password</h2>
             <form method="post"  onSubmit={(e)=> handleSubmit(e)}>
             <p>
-                    <label>Username or email address</label><br />
+                    <label>email address</label><br />
                     <input type="text" name="email"
                         onChange={(e) => setEmail(e.target.value)}
                         required />
                 </p>
                 <p>
-                    <label>Email address</label><br />
-                    <input type="number" name="otp"
+                    <label>New password</label><br />
+                    <input type="text" name="newpass"
                         onChange={(e) => setNewpassword(e.target.value)}
                         required />
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit" >Send OTP</button>
+                    <button id="sub_btn" type="submit" >Reset password</button>
                 </p>
             </form>
             <div className="vbg" style={ HeaderStyle }>

@@ -6,13 +6,15 @@ import videoBg from '../../assets/amrita.mp4'
 import  { useState } from "react";
 
 export default function OTPPage() {
-    const [otp, setOtp] = useState("");
+    const [resetToken, setOtp] = useState("");
+    const [email,setEmail]=useState("");
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault()
         
         let data = {
-            otp            
+            email,
+            resetToken           
         }
         axios
             .post("http://192.168.6.17:8080/api/auth/forgotpassword/verifyotp", data)
@@ -28,17 +30,22 @@ export default function OTPPage() {
     return (
         
         <div className="text-center m-5-auto" >
-            <h2>Reset your password</h2>
-            <h5>Enter your email address and we will send you a new password</h5>
+            <h2>Enter the received OTP</h2>
             <form method="post" onSubmit={(e)=> handleSubmit(e)}>
                 <p>
                     <label>Email address</label><br />
+                    <input type="email" name="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        required />
+                </p>
+                <p>
+                    <label>OTP</label><br />
                     <input type="number" name="otp"
                         onChange={(e) => setOtp(e.target.value)}
                         required />
                 </p>
                 <p>
-                    <button id="sub_btn" type="submit" >Send OTP</button>
+                    <button id="sub_btn" type="submit" >Verify</button>
                 </p>
             </form>
             <div className="vbg" >

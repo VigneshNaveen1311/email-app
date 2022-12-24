@@ -31,7 +31,7 @@ export default function ForgetPasswordPage() {
         
         <div className="text-center m-5-auto" >
             <h2>Reset your password</h2>
-            <h5>Enter your email address and we will send you a new password</h5>
+            <h5>Enter your email address and we will send you an OTP</h5>
             <form method="post" action="/otp" onSubmit={(e)=> handleSubmit(e)}>
                 <p>
                     <label>Email address</label><br />
